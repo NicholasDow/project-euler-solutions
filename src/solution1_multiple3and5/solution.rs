@@ -1,4 +1,4 @@
-use std::collections::HashSet;
+use std::{collections::HashSet, iter::Sum};
 
 // I'm leaving my terrible attempts here: JFK I was stupid.
 const LIM:u32 = 1000;
@@ -72,4 +72,18 @@ pub fn new_approach() -> u32 {
     }
 
     helper(0,0, &mut seen) 
+}
+/*
+I did the previous solution w/o looking up language specific details 
+*/
+pub fn better_solution() -> u32 {
+    (0..1000).filter(|&x| x % 3 == 0|| x % 5 == 0).sum()
+}
+pub fn optimized() -> u32 {
+    let gauss_sum = |n: u32| -> Box<dyn Fn(u32) -> u32> {
+        Box::new(move |m| m * ((n - 1) / m) * (((n - 1) / m) + 1) / 2)
+    };
+    let gauss_limit_1000 = gauss_sum(1000);
+    // the reason 15 work here is because every prime factorizaiton with both 3 and 5 has a multiple of 15
+    gauss_limit_1000(3) + gauss_limit_1000(5) - gauss_limit_1000(15)
 }
