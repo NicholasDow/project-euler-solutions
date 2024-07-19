@@ -1,17 +1,12 @@
-mod solution1_multiple3and5;
+// use solution2_evenfibs::fib_optimized;
+
+use solution4_palindromeprime::palprime;
+
+// mod solution1_multiple3and5;
+// mod solution2_evenfibs;
+// mod solution3_primes;
+mod solution4_palindromeprime;
+
 fn main() {
-    // let (sol, indexes) = solution1_multiple3and5::total();
-    // println!("{}", sol);
-    // debug formatting, debug trait!!!!
-    // println!("{:?}", indexes);
-
-    // let dc = solution1_multiple3and5::double_counted();
-    // println!("{}", dc);
-
-    // println!("the actual solution {}", sol-dc);
-
-    let ns = solution1_multiple3and5::new_approach();
-    dbg!(solution1_multiple3and5::new_approach() == solution1_multiple3and5::better_solution());
-    dbg!(ns);
-    dbg!(solution1_multiple3and5::optimized());
+    println!("{}", palprime())
 }
